@@ -16,8 +16,8 @@ int main()
 
         while (getline(newfile, currentText)) {  //read data from file object and put it into string.
             
-            enum directions {forward, up, down};
-            directions currentDirection;
+            enum directions {forward, up, down, invalid};
+            directions currentDirection = invalid;
             if (currentText.substr(0, currentText.find(" ")) == "forward") {
                 currentDirection = forward;
             }
@@ -28,6 +28,10 @@ int main()
             else if (currentText.substr(0, currentText.find(" ")) == "down")
             {
                 currentDirection = down;
+            }
+            else
+            {
+                currentDirection = invalid;
             }
 
             int movement = stoi(currentText.substr(currentText.find(" ") + 1));
